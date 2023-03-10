@@ -41,9 +41,11 @@ while len(called_states) < len(states_list):
         draw_country(pos, answer_state)
 
 # states_to_learn.csv
-to_learn = states_list
-for state in called_states:
-    to_learn.remove(state)
+
+# to_learn = states_list
+# for state in called_states:
+#     to_learn.remove(state)
+to_learn = [n for n in states_list if n not in called_states]
 new_data = pandas.DataFrame(to_learn)
 new_data.to_csv("states_to_learn.csv")
 
